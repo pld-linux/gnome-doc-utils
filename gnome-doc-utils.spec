@@ -1,17 +1,18 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl):	Narzêdzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.1.3
+Version:	0.2.0
 Release:	1
-License:	LGPL
+License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	d59875bb5924fd098a19a7d229af63cc
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-doc-utils/0.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	c72f2a974e4f05210d2736e92399c58e
 URL:		http://www.gnome.org/
-BuildRequires:	libxml2-devel >= 2.6.12
-BuildRequires:	libxslt-devel >= 1.1.8
+BuildRequires:	libxml2-devel >= 1:2.6.19
+BuildRequires:	libxslt-devel >= 1.1.14
 BuildRequires:	python >= 2.0
 BuildRequires:	scrollkeeper
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,8 +39,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /usr/bin/scrollkeeper-update
-%postun	-p /usr/bin/scrollkeeper-update
+%post
+/usr/bin/scrollkeeper-update -q
+
+%postun
+if [ $1 = 0 ]; then
+	/usr/bin/scrollkeeper-update -q
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
