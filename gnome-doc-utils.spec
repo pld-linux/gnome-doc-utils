@@ -38,8 +38,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /usr/bin/scrollkeeper-update
-%postun -p /usr/bin/scrollkeeper-update
+%post	-p /usr/bin/scrollkeeper-update
+%postun	-p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -51,4 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_omf_dest_dir}/*
 %{_datadir}/xml/gnome
 %{_datadir}/xml2po
-%{_mandir}/man1/xml2po.1.gz
+%{_mandir}/man1/xml2po.1*
