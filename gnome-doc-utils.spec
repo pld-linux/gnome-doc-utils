@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl):	Narzêdzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.1.2
+Version:	0.1.3
 Release:	1
 License:	LGPL
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	7164538a4a56418328f9bfde0313ac6b
+# Source0-md5:	d59875bb5924fd098a19a7d229af63cc
 URL:		http://www.gnome.org/
 BuildRequires:	libxml2-devel >= 2.6.12
 BuildRequires:	libxslt-devel >= 1.1.8
@@ -51,3 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_omf_dest_dir}/*
 %{_datadir}/xml/gnome
 %{_datadir}/xml2po
+%{_mandir}/man1/xml2po.1.gz
