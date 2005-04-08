@@ -11,6 +11,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	libxml2-devel >= 1:2.6.19
 BuildRequires:	libxslt-devel >= 1.1.14
 BuildRequires:	python >= 2.0
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,12 +41,10 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/bin/scrollkeeper-update -q
+%scrollkeeper_update_post
 
 %postun
-if [ $1 = 0 ]; then
-	/usr/bin/scrollkeeper-update -q
-fi
+%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
