@@ -1,15 +1,15 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl):	Narzêdzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.7.1
+Version:	0.7.2
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-doc-utils/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	21fe881ab473fdc9246c36bd8ef929b0
+# Source0-md5:	3f3903e5a3e3b05261498d907f2471a9
 Patch0:		%{name}-no_scrollkeeper_update.patch
 URL:		http://www.gnome.org/
-BuildRequires:	libxslt-devel >= 1.1.15
+BuildRequires:	libxslt-devel >= 1.1.17
 BuildRequires:	python >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
@@ -38,6 +38,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+                                                                              
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ug
 
 %find_lang %{name} --all-name --with-gnome
 
