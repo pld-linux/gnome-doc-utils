@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-                                                                              
+
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ug
 
 %find_lang %{name} --all-name --with-gnome
