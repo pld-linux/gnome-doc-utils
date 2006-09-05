@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl):	Narzêdzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.7.2
+Version:	0.8.0
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-doc-utils/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	3f3903e5a3e3b05261498d907f2471a9
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-doc-utils/0.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	50726331fef362dc94921f366fcc8ed2
 Patch0:		%{name}-no_scrollkeeper_update.patch
 URL:		http://www.gnome.org/
 BuildRequires:	libxslt-devel >= 1.1.17
