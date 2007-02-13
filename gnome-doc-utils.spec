@@ -1,5 +1,5 @@
 Summary:	Documentation utilities for GNOME
-Summary(pl.UTF-8):   Narzędzia do budowania dokumentacji dla GNOME
+Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
 Version:	0.8.0
 Release:	1
