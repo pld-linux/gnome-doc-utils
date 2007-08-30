@@ -13,8 +13,8 @@ BuildRequires:	libxslt-devel >= 1.1.20
 BuildRequires:	python >= 2.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	scrollkeeper
-Requires(post,postun):	scrollkeeper
+BuildRequires:	rarian-compat
+Requires(post,postun):	rarian-compat
 Requires:	libxslt-progs
 Requires:	python-libxml2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
