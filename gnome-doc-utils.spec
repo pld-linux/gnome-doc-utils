@@ -1,15 +1,21 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.12.0
-Release:	3
+Version:	0.12.1
+Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	5934c08d12407d8233416343cd73df24
+# Source0-md5:	3e55a31a62985076131e603062371ac7
 Patch0:		%{name}-no_scrollkeeper_update.patch
 URL:		http://www.gnome.org/
+BuildRequires:	autoconf
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	gettext-devel
+BuildRequires:	intltool >= 0.37.0
+BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxslt-devel >= 1.1.22
+BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	rarian-compat
 BuildRequires:	rpm-pythonprov
@@ -33,10 +39,14 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 %setup -q
 %patch0 -p1
 
-sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
-mv po/sr\@{Latn,latin}.po
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv po/sr@{Latn,latin}.po
 
 %build
+%{__intltoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--disable-scrollkeeper
 %{__make}
