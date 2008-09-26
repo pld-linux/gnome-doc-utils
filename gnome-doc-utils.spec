@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.12.2
+Version:	0.14.0
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	e1a9e9ba923b8950f8803c90ebeaadb8
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	3aee9b504f6c9b1cb0f34f80264f2239
 Patch0:		%{name}-no_scrollkeeper_update.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
@@ -21,7 +21,6 @@ BuildRequires:	rarian-compat
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	sed >= 4.0
 Requires(post,postun):	rarian-compat
 Requires:	libxslt-progs
 Requires:	python-libxml2
@@ -38,9 +37,6 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 %prep
 %setup -q
 %patch0 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__intltoolize}
