@@ -25,6 +25,7 @@ Requires(post,postun):	rarian-compat
 Requires:	libxslt-progs
 Requires:	python-libxml2
 Requires:	python-modules
+Requires:	which
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
