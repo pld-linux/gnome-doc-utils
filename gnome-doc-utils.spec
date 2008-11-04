@@ -24,6 +24,7 @@ BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,postun):	rarian-compat
 Requires:	libxslt-progs
 Requires:	python-libxml2
+Requires:	python-modules
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
