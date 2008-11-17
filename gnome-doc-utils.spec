@@ -42,7 +42,7 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 
 %build
 %{__intltoolize}
-%{__aclocal}
+%{__aclocal} -I tools
 %{__autoconf}
 %{__automake}
 %configure \
