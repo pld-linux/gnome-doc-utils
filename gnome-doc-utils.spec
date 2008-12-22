@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.14.0
+Version:	0.14.1
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	3aee9b504f6c9b1cb0f34f80264f2239
+# Source0-md5:	5eba14aa3a4ebd0025fa7b17c50e7c01
 Patch0:		%{name}-no_scrollkeeper_update.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
