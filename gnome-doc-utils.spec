@@ -1,13 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.16.1
+Version:	0.18.0
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	85d4bba44773f6162de72e81e8bd0ab0
-Patch0:		%{name}-no_scrollkeeper_update.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	5a25827673f9ff060a554c0858dbf020
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -38,22 +37,27 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 
 %prep
 %setup -q
-%patch0 -p1
+rm -f po/ca@valencia.po
+sed -i s#^ca@valencia## po/LINGUAS
 
 %build
 %{__intltoolize}
-%{__aclocal} -I tools
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
 	--disable-scrollkeeper
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
+%py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
+%py_postclean
 
 %find_lang %{name} --all-name --with-omf --with-gnome
 
@@ -74,8 +78,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xml2po
 %{_aclocaldir}/gnome-doc-utils.m4
 %{_datadir}/%{name}
-%{_datadir}/xml2po
 %{_datadir}/xml/gnome
+%{_datadir}/xml/mallard
 %{_mandir}/man1/xml2po.1*
-%{_pkgconfigdir}/gnome-doc-utils.pc
+%dir %{py_sitescriptdir}/xml2po
+%{py_sitescriptdir}/xml2po/*.py[co]
+%dir %{py_sitescriptdir}/xml2po/modes
+%{py_sitescriptdir}/xml2po/modes/*.py[co]
+%{_datadir}/pkgconfig/gnome-doc-utils.pc
 %{_pkgconfigdir}/xml2po.pc
