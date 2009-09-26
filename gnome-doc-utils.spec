@@ -37,8 +37,6 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 
 %prep
 %setup -q
-rm -f po/ca@valencia.po
-sed -i s#^ca@valencia## po/LINGUAS
 
 %build
 %{__intltoolize}
