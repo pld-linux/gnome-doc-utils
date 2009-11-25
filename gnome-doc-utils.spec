@@ -13,9 +13,12 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
+BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.1.22
+BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
+BuildRequires:	python-libxml2
 BuildRequires:	rarian-compat
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
@@ -40,7 +43,7 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 
 %build
 %{__intltoolize}
-%{__aclocal} -I m4
+%{__aclocal} -I m4 -I tools
 %{__autoconf}
 %{__automake}
 %configure \
