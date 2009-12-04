@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.18.0
+Version:	0.18.1
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	5a25827673f9ff060a554c0858dbf020
+# Source0-md5:	c98ca796f3f2938a1fced7476e65351e
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
