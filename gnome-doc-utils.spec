@@ -10,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.18/%{name}-%{v
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	docbook-dtd44-xml
 BuildRequires:	gettext-devel
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
