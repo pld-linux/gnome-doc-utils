@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.18.1
+Version:	0.20.0
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	c98ca796f3f2938a1fced7476e65351e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	fb0e687e0270eff4bbeb6df7091f72b3
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -24,6 +24,7 @@ BuildRequires:	rarian-compat
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	rarian-compat
 Requires:	libxslt-progs
 Requires:	python-libxml2
@@ -41,6 +42,9 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 
 %prep
 %setup -q
+
+sed -i -e 's/^en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
 
 %build
 %{__intltoolize}
@@ -87,5 +91,5 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/xml2po/*.py[co]
 %dir %{py_sitescriptdir}/xml2po/modes
 %{py_sitescriptdir}/xml2po/modes/*.py[co]
-%{_datadir}/pkgconfig/gnome-doc-utils.pc
-%{_pkgconfigdir}/xml2po.pc
+%{_npkgconfigdir}/gnome-doc-utils.pc
+%{_npkgconfigdir}/xml2po.pc
