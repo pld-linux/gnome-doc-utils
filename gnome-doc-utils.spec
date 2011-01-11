@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.20.3
+Version:	0.20.4
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	88cc250c0c2a3943359b471ad1ccaa8f
+# Source0-md5:	6872b68dd081fc033e07d5877b4c0645
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -14,21 +14,21 @@ BuildRequires:	docbook-dtd44-xml
 BuildRequires:	gettext-devel
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
-BuildRequires:	libxml2-progs
+BuildRequires:	libxml2-progs >= 1:2.6.31
 BuildRequires:	libxslt-devel >= 1.1.22
-BuildRequires:	libxslt-progs
+BuildRequires:	libxslt-progs >= 1.1.22
 BuildRequires:	pkgconfig
-BuildRequires:	python >= 2.0
-BuildRequires:	python-libxml2
+BuildRequires:	python >= 1:2.4
+BuildRequires:	python-libxml2 >= 1:2.6.31
 BuildRequires:	rarian-compat
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	sed >= 4.0
 Requires(post,postun):	rarian-compat
-Requires:	libxslt-progs
-Requires:	python-libxml2
-Requires:	python-modules
+Requires:	libxslt-progs >= 1.1.22
+Requires:	python-libxml2 >= 1:2.6.31
+Requires:	python-modules >= 1:2.4
 Requires:	which
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -44,7 +44,7 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 %setup -q
 
 sed -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
+%{__rm} po/en@shaw.po
 
 %build
 %{__intltoolize}
