@@ -24,7 +24,6 @@ BuildRequires:	rarian-compat
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	sed >= 4.0
 Requires(post,postun):	rarian-compat
 Requires:	libxslt-progs >= 1.1.22
 Requires:	python-libxml2 >= 1:2.6.31
@@ -42,9 +41,6 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 
 %prep
 %setup -q
-
-sed -i -e 's/^en@shaw//' po/LINGUAS
-%{__rm} po/en@shaw.po
 
 %build
 %{__intltoolize}
