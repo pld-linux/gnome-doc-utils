@@ -1,12 +1,12 @@
 Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
-Version:	0.20.7
+Version:	0.20.9
 Release:	1
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.20/%{name}-%{version}.tar.xz
-# Source0-md5:	c07b2759433ec9e337712a20c63113fb
+# Source0-md5:	dd58f8dd10fb90299ae009dd0faf5270
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -83,6 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_aclocaldir}/gnome-doc-utils.m4
 %{_datadir}/%{name}
 %{_datadir}/xml/gnome
+%{_datadir}/xml/mallard
 %{_mandir}/man1/xml2po.1*
 %dir %{py_sitescriptdir}/xml2po
 %{py_sitescriptdir}/xml2po/*.py[co]
