@@ -11,7 +11,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd44-xml
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxml2-progs >= 1:2.6.31
