@@ -12,6 +12,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd44-xml
 BuildRequires:	gettext-tools
+BuildRequires:	glib2-devel
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxml2-progs >= 1:2.6.31
@@ -43,6 +44,8 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 
 %prep
 %setup -q
+
+%{__rm} m4/glib-gettext.m4
 
 %build
 %{__intltoolize}
