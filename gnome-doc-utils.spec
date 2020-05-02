@@ -53,6 +53,7 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 %{__autoconf}
 %{__automake}
 %configure \
+	PYTHON=%{__python} \
 	--disable-scrollkeeper
 %{__make} -j1
 
