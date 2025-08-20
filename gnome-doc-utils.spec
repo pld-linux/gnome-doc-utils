@@ -2,7 +2,7 @@ Summary:	Documentation utilities for GNOME
 Summary(pl.UTF-8):	Narzędzia do budowania dokumentacji dla GNOME
 Name:		gnome-doc-utils
 Version:	0.20.10
-Release:	3
+Release:	4
 License:	GPL v2+/LGPL v2+
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.20/%{name}-%{version}.tar.xz
@@ -34,6 +34,7 @@ Requires:	python-modules >= 1:2.4
 Requires:	which
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,6 +47,7 @@ Zestaw narzędzi do budowania dokumentacji dla GNOME.
 %setup -q
 
 %{__rm} m4/glib-gettext.m4
+sed -i -e 's#AX_GLIB_GNU_GETTEXT#AM_GLIB_GNU_GETTEXT#g' configure.in
 
 %build
 %{__intltoolize}
